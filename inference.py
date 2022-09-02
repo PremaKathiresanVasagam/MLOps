@@ -41,9 +41,7 @@ def main():
     # Print top category per image
     top_prob, top_catid = torch.topk(probabilities, 1)
     for i in range(top_prob.size(0)):
-        print(categories[top_catid[i]], top_prob[i].item())
-        output = {"predicted": categories[top_catid[i]], "confidence": str(round(float(top_prob[i].item()), 2))} 
-        print(output)
+        print('{' + f'\"predicted\" : \"{str(categories[top_catid[i]])}\", \"confidence\" : \"{str(round(float(top_prob[i].item()), 2))}\"' + '}')
     
 if __name__ == '__main__':
     main()
